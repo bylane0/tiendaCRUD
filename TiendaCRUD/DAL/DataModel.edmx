@@ -147,7 +147,7 @@
           <Property Name="ProductoCliente" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Provincia1" Relationship="Self.Cliente_Provincia" FromRole="Cliente" ToRole="Provincia" />
           <NavigationProperty Name="TipoDocumento" Relationship="Self.Cliente_TipoDoc" FromRole="Cliente" ToRole="TipoDocumento" />
-          <NavigationProperty Name="ProductoCliente1" Relationship="Self.FK_ProductoCliente_Cliente" FromRole="Cliente" ToRole="ProductoCliente" />
+          <NavigationProperty Name="ProductoClientes" Relationship="Self.FK_ProductoCliente_Cliente" FromRole="Cliente" ToRole="ProductoCliente" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -155,7 +155,7 @@
           </Key>
           <Property Name="IdProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ProductoCliente" Relationship="Self.FK_ProductoCliente_Producto" FromRole="Producto" ToRole="ProductoCliente" />
+          <NavigationProperty Name="ProductoClientes" Relationship="Self.FK_ProductoCliente_Producto" FromRole="Producto" ToRole="ProductoCliente" />
         </EntityType>
         <EntityType Name="ProductoCliente">
           <Key>
@@ -174,9 +174,9 @@
           </Key>
           <Property Name="IdProvincia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Cliente" Relationship="Self.Cliente_Provincia" FromRole="Provincia" ToRole="Cliente" />
+          <NavigationProperty Name="Clientes" Relationship="Self.Cliente_Provincia" FromRole="Provincia" ToRole="Cliente" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
@@ -192,7 +192,7 @@
           </Key>
           <Property Name="IdTipoDoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Cliente" Relationship="Self.Cliente_TipoDoc" FromRole="TipoDocumento" ToRole="Cliente" />
+          <NavigationProperty Name="Clientes" Relationship="Self.Cliente_TipoDoc" FromRole="TipoDocumento" ToRole="Cliente" />
         </EntityType>
         <Association Name="Cliente_Provincia">
           <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
@@ -242,28 +242,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TIENDACRUDEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
-          <EntitySet Name="Producto" EntityType="Self.Producto" />
-          <EntitySet Name="ProductoCliente" EntityType="Self.ProductoCliente" />
-          <EntitySet Name="Provincia" EntityType="Self.Provincia" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="TipoDocumento" EntityType="Self.TipoDocumento" />
+        <EntityContainer Name="TIENDAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+          <EntitySet Name="Productoes" EntityType="Self.Producto" />
+          <EntitySet Name="ProductoClientes" EntityType="Self.ProductoCliente" />
+          <EntitySet Name="Provincias" EntityType="Self.Provincia" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TipoDocumentoes" EntityType="Self.TipoDocumento" />
           <AssociationSet Name="Cliente_Provincia" Association="Self.Cliente_Provincia">
-            <End Role="Provincia" EntitySet="Provincia" />
-            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Provincia" EntitySet="Provincias" />
+            <End Role="Cliente" EntitySet="Clientes" />
           </AssociationSet>
           <AssociationSet Name="Cliente_TipoDoc" Association="Self.Cliente_TipoDoc">
-            <End Role="TipoDocumento" EntitySet="TipoDocumento" />
-            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="TipoDocumento" EntitySet="TipoDocumentoes" />
+            <End Role="Cliente" EntitySet="Clientes" />
           </AssociationSet>
           <AssociationSet Name="FK_ProductoCliente_Cliente" Association="Self.FK_ProductoCliente_Cliente">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="ProductoCliente" EntitySet="ProductoCliente" />
+            <End Role="Cliente" EntitySet="Clientes" />
+            <End Role="ProductoCliente" EntitySet="ProductoClientes" />
           </AssociationSet>
           <AssociationSet Name="FK_ProductoCliente_Producto" Association="Self.FK_ProductoCliente_Producto">
-            <End Role="Producto" EntitySet="Producto" />
-            <End Role="ProductoCliente" EntitySet="ProductoCliente" />
+            <End Role="Producto" EntitySet="Productoes" />
+            <End Role="ProductoCliente" EntitySet="ProductoClientes" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -271,8 +271,8 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TIENDACRUDModelStoreContainer" CdmEntityContainer="TIENDACRUDEntities">
-          <EntitySetMapping Name="Cliente">
+        <EntityContainerMapping StorageEntityContainer="TIENDACRUDModelStoreContainer" CdmEntityContainer="TIENDAEntities">
+          <EntitySetMapping Name="Clientes">
             <EntityTypeMapping TypeName="TIENDACRUDModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
                 <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
@@ -285,7 +285,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Producto">
+          <EntitySetMapping Name="Productoes">
             <EntityTypeMapping TypeName="TIENDACRUDModel.Producto">
               <MappingFragment StoreEntitySet="Producto">
                 <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
@@ -293,7 +293,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ProductoCliente">
+          <EntitySetMapping Name="ProductoClientes">
             <EntityTypeMapping TypeName="TIENDACRUDModel.ProductoCliente">
               <MappingFragment StoreEntitySet="ProductoCliente">
                 <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
@@ -302,7 +302,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Provincia">
+          <EntitySetMapping Name="Provincias">
             <EntityTypeMapping TypeName="TIENDACRUDModel.Provincia">
               <MappingFragment StoreEntitySet="Provincia">
                 <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
@@ -311,7 +311,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="TIENDACRUDModel.sysdiagrams">
+            <EntityTypeMapping TypeName="TIENDACRUDModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -321,7 +321,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TipoDocumento">
+          <EntitySetMapping Name="TipoDocumentoes">
             <EntityTypeMapping TypeName="TIENDACRUDModel.TipoDocumento">
               <MappingFragment StoreEntitySet="TipoDocumento">
                 <ScalarProperty Name="IdTipoDoc" ColumnName="IdTipoDoc" />
@@ -343,7 +343,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />

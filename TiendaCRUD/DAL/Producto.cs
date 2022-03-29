@@ -17,13 +17,13 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Producto()
         {
-            this.ProductoCliente = new HashSet<ProductoCliente>();
+            this.ProductoClientes = new HashSet<ProductoCliente>();
         }
     
         public int IdProducto { get; set; }
         public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductoCliente> ProductoCliente { get; set; }
+        public virtual ICollection<ProductoCliente> ProductoClientes { get; set; }
     }
 }

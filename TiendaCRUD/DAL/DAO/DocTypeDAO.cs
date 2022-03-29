@@ -8,7 +8,7 @@ using MisDTO.DTO;
 namespace DAL.DAO
 {
 
-    public class DocTypeDAO : DataContext, IDAO<TipoDocumento, DocTypeDetailDTO>
+    public class DocTypeDAO : TiendaContext, IDAO<TipoDocumento, DocTypeDetailDTO>
     {
         public bool Delete(TipoDocumento entity)
         {
@@ -25,7 +25,7 @@ namespace DAL.DAO
             try
             {
                 List<DocTypeDetailDTO> tipodocs = new List<DocTypeDetailDTO>();
-                var list = db.TipoDocumento;
+                var list = db.TipoDocumentoes.ToList();
                 foreach (var item in list)
                 {
                     DocTypeDetailDTO dto = new DocTypeDetailDTO();

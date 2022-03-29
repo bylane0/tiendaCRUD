@@ -108,7 +108,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="TIENDAEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="TIENDACRUDEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Clientes" EntityType="Self.Cliente" />
     <EntitySet Name="Productoes" EntityType="Self.Producto" />
     <EntitySet Name="ProductoClientes" EntityType="Self.ProductoCliente" />

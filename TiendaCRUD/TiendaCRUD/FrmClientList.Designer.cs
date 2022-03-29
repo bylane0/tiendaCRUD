@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.txtClientSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
@@ -44,7 +44,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtCustomerName);
+            this.panel1.Controls.Add(this.txtClientSearch);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -52,13 +52,14 @@
             this.panel1.Size = new System.Drawing.Size(566, 66);
             this.panel1.TabIndex = 0;
             // 
-            // txtCustomerName
+            // txtClientSearch
             // 
-            this.txtCustomerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCustomerName.Location = new System.Drawing.Point(194, 18);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(172, 26);
-            this.txtCustomerName.TabIndex = 9;
+            this.txtClientSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientSearch.Location = new System.Drawing.Point(194, 18);
+            this.txtClientSearch.Name = "txtClientSearch";
+            this.txtClientSearch.Size = new System.Drawing.Size(172, 26);
+            this.txtClientSearch.TabIndex = 9;
+            this.txtClientSearch.TextChanged += new System.EventHandler(this.txtCustomerName_TextChanged);
             // 
             // label1
             // 
@@ -123,15 +124,18 @@
             this.btnUpdate.TabIndex = 17;
             this.btnUpdate.Text = "Editar";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 66);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(566, 301);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // FrmClientList
             // 
@@ -156,7 +160,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtCustomerName;
+        private System.Windows.Forms.TextBox txtClientSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnClose;

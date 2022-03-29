@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtProvince = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDocumentNumber = new System.Windows.Forms.TextBox();
@@ -40,6 +39,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.cmbTypeDocument = new System.Windows.Forms.ComboBox();
+            this.cmbProvince = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtClientName
@@ -77,14 +77,6 @@
             this.label2.Size = new System.Drawing.Size(84, 20);
             this.label2.TabIndex = 12;
             this.label2.Text = "Direccion";
-            // 
-            // txtProvince
-            // 
-            this.txtProvince.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProvince.Location = new System.Drawing.Point(194, 103);
-            this.txtProvince.Name = "txtProvince";
-            this.txtProvince.Size = new System.Drawing.Size(172, 26);
-            this.txtProvince.TabIndex = 15;
             // 
             // label3
             // 
@@ -156,24 +148,34 @@
             this.cmbTypeDocument.Size = new System.Drawing.Size(172, 28);
             this.cmbTypeDocument.TabIndex = 22;
             // 
+            // cmbProvince
+            // 
+            this.cmbProvince.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbProvince.FormattingEnabled = true;
+            this.cmbProvince.Location = new System.Drawing.Point(194, 103);
+            this.cmbProvince.Name = "cmbProvince";
+            this.cmbProvince.Size = new System.Drawing.Size(172, 28);
+            this.cmbProvince.TabIndex = 23;
+            // 
             // FrmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 320);
+            this.Controls.Add(this.cmbProvince);
             this.Controls.Add(this.cmbTypeDocument);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtDocumentNumber);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtProvince);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtClientName);
             this.Controls.Add(this.label1);
             this.Name = "FrmClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cliente";
             this.Load += new System.EventHandler(this.FrmClient_Load);
             this.ResumeLayout(false);
@@ -187,7 +189,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtProvince;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDocumentNumber;
@@ -195,5 +196,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cmbTypeDocument;
+        private System.Windows.Forms.ComboBox cmbProvince;
     }
 }

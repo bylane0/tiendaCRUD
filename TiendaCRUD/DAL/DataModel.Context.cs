@@ -13,10 +13,10 @@ namespace DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TIENDACRUDEntities : DbContext
+    public partial class TIENDAEntities : DbContext
     {
-        public TIENDACRUDEntities()
-            : base("name=TIENDACRUDEntities")
+        public TIENDAEntities()
+            : base("name=TIENDAEntities")
         {
         }
     
@@ -25,11 +25,11 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Cliente> Cliente { get; set; }
-        public virtual DbSet<Producto> Producto { get; set; }
-        public virtual DbSet<ProductoCliente> ProductoCliente { get; set; }
-        public virtual DbSet<Provincia> Provincia { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<TipoDocumento> TipoDocumento { get; set; }
+        public virtual DbSet<Cliente> Clientes { get; set; }
+        public virtual DbSet<Producto> Productoes { get; set; }
+        public virtual DbSet<ProductoCliente> ProductoClientes { get; set; }
+        public virtual DbSet<Provincia> Provincias { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<TipoDocumento> TipoDocumentoes { get; set; }
     }
 }

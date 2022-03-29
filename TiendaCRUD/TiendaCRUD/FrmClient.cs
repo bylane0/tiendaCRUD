@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TIENDACRUD.BLL;
 
 namespace TiendaCRUD
 {
@@ -23,6 +24,14 @@ namespace TiendaCRUD
         {
             this.Close();
         }
+        ClientBLL bll = new ClientBLL();
+
+        //Globales
+        public ClientDetailDTO detail = new ClientDetailDTO();
+        public ClientDTO dto = new ClientDTO();
+        public bool isUpdate = false;
+
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -31,8 +40,83 @@ namespace TiendaCRUD
                 MessageBox.Show(message);
             else
             {
+                if (!isUpdate) // Agregar cliente
+                {
+                    detail.NombreCliente = txtClientName.Text;
+                    detail.Direccion = txtAddress.Text;
+                    detail.Provincia = Convert.ToInt32(cmbProvince.SelectedValue);
+                    detail.TipoDoc = Convert.ToInt32(cmbTypeDocument.SelectedValue);
+                    detail.NroDoc = txtDocumentNumber.Text;
+                    if (bll.Insert(detail))
+                    {
+                        MessageBox.Show("El cliente se añadió correctamente.");
+                        CleanFilters();
+                        FillAllData();
+                    }
+                }
+                else // Editar cliente
+                {
+                    if (detail.NombreCliente == txtClientName.Text &&
+                     detail.Provincia == Convert.ToInt32(cmbProvince.SelectedValue) &&
+                     detail.TipoDoc == Convert.ToInt32(cmbTypeDocument.SelectedValue) &&
+                     detail.Direccion == txtAddress.Text
+                     && detail.NroDoc == txtDocumentNumber.Text)
+                    {
+                        MessageBox.Show("No existe ningún cambio!");
+                    }
+                    else
+                    {
+                        detail.NombreCliente = txtClientName.Text;
+                        detail.Direccion = txtAddress.Text;
+                        detail.Provincia = Convert.ToInt32(cmbProvince.SelectedValue);
+                        detail.TipoDoc = Convert.ToInt32(cmbTypeDocument.SelectedValue);
+                        detail.NroDoc = txtDocumentNumber.Text;
+                        if (bll.Update(detail))
+                        {
+                            MessageBox.Show("El cliente se actualizó correctamente.");
+                            CleanFilters();
+                            this.Close();
+                        }
+                    }
+                }
+
+
 
             }
+        }
+
+        private void FillAllData()
+        {
+            bll.Select();
+            //CMB Tipo de doc
+            cmbTypeDocument.DataSource = dto.TipoDocs;
+            cmbTypeDocument.DisplayMember = "NombreTipoDoc";
+            cmbTypeDocument.ValueMember = "IdTipoDoc";
+            cmbTypeDocument.SelectedIndex = -1;
+            //CMB Provincias
+            cmbProvince.DataSource = dto.Provincias;
+            cmbProvince.DisplayMember = "Descripcion";
+            cmbProvince.ValueMember = "IdProvincia";
+            cmbProvince.SelectedIndex = -1;
+            if (isUpdate)
+            {
+                cmbTypeDocument.SelectedValue = detail.TipoDoc;
+                cmbProvince.SelectedValue = detail.Provincia;
+                txtClientName.Text = detail.NombreCliente;
+                txtAddress.Text = detail.Direccion;
+                txtDocumentNumber.Text = detail.NroDoc;
+            }
+
+
+        }
+
+        private void CleanFilters()
+        {
+            txtClientName.Clear();
+            txtAddress.Clear();
+            cmbProvince.SelectedIndex = -1;
+            cmbTypeDocument.SelectedIndex = -1;
+            txtDocumentNumber.Clear();
         }
 
         private string ValidateForm()
@@ -42,27 +126,25 @@ namespace TiendaCRUD
                 message += "El campo 'Nombre de cliente' está vacío" + Environment.NewLine;
             if (string.IsNullOrEmpty(txtAddress.Text))
                 message += "El campo 'Dirección' está vacío" + Environment.NewLine;
-            if (string.IsNullOrEmpty(txtProvince.Text))
-                message += "El campo 'Provincia' está vacío" + Environment.NewLine;
+            if (cmbProvince.SelectedIndex == -1)
+                message += "Seleccione un tipo de provincia" + Environment.NewLine;
             if (cmbTypeDocument.SelectedIndex == -1)
                 message += "Seleccione un tipo de documento" + Environment.NewLine;
             if (string.IsNullOrEmpty(txtDocumentNumber.Text))
                 message += "El campo 'Número de documento' está vacío" + Environment.NewLine;
             return message;
-          
+
         }
 
         private void txtDocumentNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = General.isNumber(e);
         }
-        public ClientDTO dto = new ClientDTO();
+
+
         private void FrmClient_Load(object sender, EventArgs e)
         {
-            cmbTypeDocument.DataSource = dto.TipoDocs;
-            cmbTypeDocument.DisplayMember = "NombreTipoDoc";
-            cmbTypeDocument.ValueMember = "IdTipoDoc";
-            cmbTypeDocument.SelectedIndex = -1;
+            FillAllData();
         }
     }
 }

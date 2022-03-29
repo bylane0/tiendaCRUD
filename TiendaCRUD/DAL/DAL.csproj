@@ -54,9 +54,10 @@
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DAO\ClientDAO.cs" />
-    <Compile Include="DAO\DataContext.cs" />
     <Compile Include="DAO\DocTypeDAO.cs" />
     <Compile Include="DAO\IDAO.cs" />
+    <Compile Include="DAO\ProvinceDAO.cs" />
+    <Compile Include="DAO\TiendaContext.cs" />
     <Compile Include="DataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -82,7 +83,7 @@
     <Compile Include="Provincia.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
+    <Compile Include="sysdiagram.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoDocumento.cs">
@@ -91,6 +92,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MisDTO\MisDTO.csproj">
+      <Project>{0d8d753a-45f8-40b8-9250-42d0fd50bb38}</Project>
+      <Name>MisDTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="DataModel.edmx">
@@ -116,12 +123,6 @@
       <DependentUpon>DataModel.edmx</DependentUpon>
       <LastGenOutput>DataModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MisDTO\MisDTO.csproj">
-      <Project>{0d8d753a-45f8-40b8-9250-42d0fd50bb38}</Project>
-      <Name>MisDTO</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
