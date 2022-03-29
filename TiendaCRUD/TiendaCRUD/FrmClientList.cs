@@ -75,9 +75,6 @@ namespace TiendaCRUD
             detail.TipoDoc = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
             detail.NombreTipoDoc = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
             detail.NroDoc = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-
-
-
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

@@ -30,15 +30,15 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.gridCustomer = new System.Windows.Forms.DataGridView();
+            this.gridClient = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtClientSearch = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gridProduct = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtProductSearch = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtAmount = new System.Windows.Forms.TextBox();
@@ -49,7 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridClient)).BeginInit();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProduct)).BeginInit();
@@ -68,7 +68,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.gridCustomer);
+            this.groupBox2.Controls.Add(this.gridClient);
             this.groupBox2.Controls.Add(this.panel3);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -79,16 +79,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Clientes";
             // 
-            // gridCustomer
+            // gridClient
             // 
-            this.gridCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridCustomer.Location = new System.Drawing.Point(3, 64);
-            this.gridCustomer.Name = "gridCustomer";
-            this.gridCustomer.ReadOnly = true;
-            this.gridCustomer.Size = new System.Drawing.Size(393, 194);
-            this.gridCustomer.TabIndex = 1;
+            this.gridClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridClient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridClient.Location = new System.Drawing.Point(3, 64);
+            this.gridClient.Name = "gridClient";
+            this.gridClient.ReadOnly = true;
+            this.gridClient.Size = new System.Drawing.Size(393, 194);
+            this.gridClient.TabIndex = 1;
+            this.gridClient.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridClient_RowEnter);
             // 
             // panel3
             // 
@@ -107,6 +108,7 @@
             this.txtClientSearch.Name = "txtClientSearch";
             this.txtClientSearch.Size = new System.Drawing.Size(172, 26);
             this.txtClientSearch.TabIndex = 7;
+            this.txtClientSearch.TextChanged += new System.EventHandler(this.txtClientSearch_TextChanged);
             // 
             // label7
             // 
@@ -152,6 +154,14 @@
             this.panel2.Size = new System.Drawing.Size(393, 42);
             this.panel2.TabIndex = 0;
             // 
+            // txtProductSearch
+            // 
+            this.txtProductSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductSearch.Location = new System.Drawing.Point(185, 8);
+            this.txtProductSearch.Name = "txtProductSearch";
+            this.txtProductSearch.Size = new System.Drawing.Size(172, 26);
+            this.txtProductSearch.TabIndex = 8;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -161,14 +171,6 @@
             this.label6.Size = new System.Drawing.Size(176, 20);
             this.label6.TabIndex = 15;
             this.label6.Text = "Nombre del producto";
-            // 
-            // txtProductSearch
-            // 
-            this.txtProductSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductSearch.Location = new System.Drawing.Point(185, 8);
-            this.txtProductSearch.Name = "txtProductSearch";
-            this.txtProductSearch.Size = new System.Drawing.Size(172, 26);
-            this.txtProductSearch.TabIndex = 8;
             // 
             // btnClose
             // 
@@ -267,7 +269,7 @@
             this.Load += new System.EventHandler(this.FrmProductClient_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridClient)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -283,7 +285,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView gridCustomer;
+        private System.Windows.Forms.DataGridView gridClient;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtClientSearch;
         private System.Windows.Forms.Label label7;
