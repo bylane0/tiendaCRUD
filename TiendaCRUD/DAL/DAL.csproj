@@ -72,9 +72,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DTO\ClientDetailDTO.cs" />
-    <Compile Include="DTO\ClientDTO.cs" />
-    <Compile Include="DTO\DocTypeDetailDTO.cs" />
     <Compile Include="Producto.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -119,6 +116,12 @@
       <DependentUpon>DataModel.edmx</DependentUpon>
       <LastGenOutput>DataModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MisDTO\MisDTO.csproj">
+      <Project>{0d8d753a-45f8-40b8-9250-42d0fd50bb38}</Project>
+      <Name>MisDTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

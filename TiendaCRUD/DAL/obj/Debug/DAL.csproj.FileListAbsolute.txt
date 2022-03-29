@@ -10,3 +10,5 @@ C:\Users\Juan Aubone\source\repos\TiendaCRUD\DAL\bin\Debug\EntityFramework.SqlSe
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\DAL\bin\Debug\EntityFramework.xml
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\DAL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\DAL\bin\Debug\MisDTO.dll
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\DAL\bin\Debug\MisDTO.pdb

@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace DAL.DAO
 {
-    public interface IDAO<T, K> where T : class where K : class
+    internal interface IDAO<T, K> where T : class where K : class
     {
         //T = clase del modelo
         //K = clase del detalle
         List<K> Select();
         bool Insert(T entity);
         bool Update(T entity);
-        bool Delete(int ID);
+        bool Delete(T entity);
+      
     }
 }

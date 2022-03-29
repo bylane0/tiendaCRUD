@@ -15,3 +15,11 @@ C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.csp
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.exe
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.pdb
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.FrmClient.resources
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\MisDTO.dll
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\DAL.dll
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\EntityFramework.dll
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\BLL.dll.config
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\MisDTO.pdb
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\DAL.pdb
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\DAL.dll.config
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\EntityFramework.xml

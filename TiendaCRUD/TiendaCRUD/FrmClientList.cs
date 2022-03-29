@@ -1,6 +1,4 @@
-﻿using BLL.DTO;
-
-using BLL;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MisDTO.DTO;
+using TIENDACRUD.BLL;
 
 namespace TiendaCRUD
 {
@@ -25,6 +25,7 @@ namespace TiendaCRUD
             this.Close();
         }
         ClientDTO dto = new ClientDTO();
+        ClientBLL bll = new ClientBLL();
 
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -39,7 +40,6 @@ namespace TiendaCRUD
         }
         private void FrmClientList_Load(object sender, EventArgs e)
         {
-        ClientBLL bll = new ClientBLL();
             dto = bll.Select();
         }
     }

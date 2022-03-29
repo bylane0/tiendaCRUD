@@ -10,3 +10,8 @@ C:\Users\Juan Aubone\source\repos\TiendaCRUD\BLL\obj\Debug\BLL.pdb
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\BLL\bin\Debug\EntityFramework.dll
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\BLL\bin\Debug\DAL.dll.config
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\BLL\bin\Debug\EntityFramework.xml
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\BLL\bin\Debug\BLL.dll.config
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\BLL\bin\Debug\MisDTO.dll
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\BLL\bin\Debug\MisDTO.pdb
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\BLL\bin\Debug\EntityFramework.SqlServer.xml

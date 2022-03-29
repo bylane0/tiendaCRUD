@@ -113,6 +113,10 @@
       <Project>{6efa8797-c215-4600-968a-ee7e325d01df}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MisDTO\MisDTO.csproj">
+      <Project>{0d8d753a-45f8-40b8-9250-42d0fd50bb38}</Project>
+      <Name>MisDTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\addStock.png" />
