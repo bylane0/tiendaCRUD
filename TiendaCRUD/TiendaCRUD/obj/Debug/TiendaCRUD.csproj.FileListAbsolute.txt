@@ -1,0 +1,17 @@
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\TiendaCRUD.exe.config
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\TiendaCRUD.exe
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\TiendaCRUD.pdb
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\BLL.dll
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\BLL.pdb
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.csproj.AssemblyReference.cache
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.csproj.SuggestedBindingRedirects.cache
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.FrmClientList.resources
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.FrmMain.resources
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.FrmProductClient.resources
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.Properties.Resources.resources
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.csproj.GenerateResource.cache
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.csproj.CoreCompileInputs.cache
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.csproj.CopyComplete
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.exe
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.pdb
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.FrmClient.resources

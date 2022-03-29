@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TIENDACRUDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Provincia" Type="Int32" Nullable="false" />
+    <Property Name="TipoDoc" Type="Int32" Nullable="false" />
+    <Property Name="NroDoc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProductoCliente" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Provincia1" Relationship="Self.Cliente_Provincia" FromRole="Cliente" ToRole="Provincia" />
+    <NavigationProperty Name="TipoDocumento" Relationship="Self.Cliente_TipoDoc" FromRole="Cliente" ToRole="TipoDocumento" />
+    <NavigationProperty Name="ProductoCliente1" Relationship="Self.FK_ProductoCliente_Cliente" FromRole="Cliente" ToRole="ProductoCliente" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ProductoCliente" Relationship="Self.FK_ProductoCliente_Producto" FromRole="Producto" ToRole="ProductoCliente" />
+  </EntityType>
+  <EntityType Name="ProductoCliente">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <Property Name="IdCliente" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_ProductoCliente_Cliente" FromRole="ProductoCliente" ToRole="Cliente" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK_ProductoCliente_Producto" FromRole="ProductoCliente" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Provincia">
+    <Key>
+      <PropertyRef Name="IdProvincia" />
+    </Key>
+    <Property Name="IdProvincia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.Cliente_Provincia" FromRole="Provincia" ToRole="Cliente" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TipoDocumento">
+    <Key>
+      <PropertyRef Name="IdTipoDoc" />
+    </Key>
+    <Property Name="IdTipoDoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.Cliente_TipoDoc" FromRole="TipoDocumento" ToRole="Cliente" />
+  </EntityType>
+  <Association Name="Cliente_Provincia">
+    <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="IdProvincia" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="Provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Cliente_TipoDoc">
+    <End Role="TipoDocumento" Type="Self.TipoDocumento" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDocumento">
+        <PropertyRef Name="IdTipoDoc" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="TipoDoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductoCliente_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="ProductoCliente" Type="Self.ProductoCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="ProductoCliente">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductoCliente_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="ProductoCliente" Type="Self.ProductoCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="ProductoCliente">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TIENDACRUDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" />
+    <EntitySet Name="ProductoCliente" EntityType="Self.ProductoCliente" />
+    <EntitySet Name="Provincia" EntityType="Self.Provincia" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TipoDocumento" EntityType="Self.TipoDocumento" />
+    <AssociationSet Name="Cliente_Provincia" Association="Self.Cliente_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="Cliente_TipoDoc" Association="Self.Cliente_TipoDoc">
+      <End Role="TipoDocumento" EntitySet="TipoDocumento" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductoCliente_Cliente" Association="Self.FK_ProductoCliente_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="ProductoCliente" EntitySet="ProductoCliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductoCliente_Producto" Association="Self.FK_ProductoCliente_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="ProductoCliente" EntitySet="ProductoCliente" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
