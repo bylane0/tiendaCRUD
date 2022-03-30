@@ -1,0 +1,261 @@
+USE [master]
+GO
+/****** Object:  Database [TIENDACRUD]    Script Date: 30/3/2022 13:11:42 ******/
+CREATE DATABASE [TIENDACRUD]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'TIENDACRUD', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\TIENDACRUD.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'TIENDACRUD_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\TIENDACRUD_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [TIENDACRUD] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [TIENDACRUD].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [TIENDACRUD] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [TIENDACRUD] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [TIENDACRUD] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [TIENDACRUD] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [TIENDACRUD] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [TIENDACRUD] SET  MULTI_USER 
+GO
+ALTER DATABASE [TIENDACRUD] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [TIENDACRUD] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [TIENDACRUD] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [TIENDACRUD] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [TIENDACRUD] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [TIENDACRUD] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+ALTER DATABASE [TIENDACRUD] SET QUERY_STORE = OFF
+GO
+USE [TIENDACRUD]
+GO
+/****** Object:  Table [dbo].[Cliente]    Script Date: 30/3/2022 13:11:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Cliente](
+	[IdCliente] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NOT NULL,
+	[Direccion] [varchar](50) NOT NULL,
+	[Provincia] [int] NOT NULL,
+	[TipoDoc] [int] NOT NULL,
+	[NroDoc] [varchar](50) NOT NULL,
+	[ProductoCliente] [int] NOT NULL,
+ CONSTRAINT [PK_Cliente] PRIMARY KEY CLUSTERED 
+(
+	[IdCliente] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Producto]    Script Date: 30/3/2022 13:11:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Producto](
+	[IdProducto] [int] IDENTITY(1,1) NOT NULL,
+	[Descripcion] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Producto] PRIMARY KEY CLUSTERED 
+(
+	[IdProducto] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ProductoCliente]    Script Date: 30/3/2022 13:11:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ProductoCliente](
+	[IdProducto] [int] NOT NULL,
+	[IdCliente] [int] NOT NULL,
+	[Cantidad] [int] NOT NULL,
+ CONSTRAINT [PK_ProductoCliente] PRIMARY KEY CLUSTERED 
+(
+	[IdProducto] ASC,
+	[IdCliente] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Provincia]    Script Date: 30/3/2022 13:11:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Provincia](
+	[IdProvincia] [int] IDENTITY(1,1) NOT NULL,
+	[Descripcion] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Provincia] PRIMARY KEY CLUSTERED 
+(
+	[IdProvincia] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TipoDocumento]    Script Date: 30/3/2022 13:11:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TipoDocumento](
+	[IdTipoDoc] [int] IDENTITY(1,1) NOT NULL,
+	[Descripcion] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_TipoDocumento] PRIMARY KEY CLUSTERED 
+(
+	[IdTipoDoc] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Cliente] ON 
+GO
+INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc], [ProductoCliente]) VALUES (2, N'Juan', N'Sidney 321', 1, 1, N'44561985', 1)
+GO
+INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc], [ProductoCliente]) VALUES (3, N'Carlitos', N'Zamudio 3200', 1, 1, N'17616630', 7)
+GO
+INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc], [ProductoCliente]) VALUES (4, N'Florencia', N'Pekos 2121', 2, 1, N'18499035', 7)
+GO
+INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc], [ProductoCliente]) VALUES (5, N'Sofia', N'Cuenca 4821', 1, 1, N'39643980', 7)
+GO
+INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc], [ProductoCliente]) VALUES (6, N'Ignacio', N'Lombardi 2399', 3, 1, N'1761290', 7)
+GO
+SET IDENTITY_INSERT [dbo].[Cliente] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Producto] ON 
+GO
+INSERT [dbo].[Producto] ([IdProducto], [Descripcion]) VALUES (1, N'Perillas blancas
+')
+GO
+INSERT [dbo].[Producto] ([IdProducto], [Descripcion]) VALUES (2, N'Perillas negras
+')
+GO
+INSERT [dbo].[Producto] ([IdProducto], [Descripcion]) VALUES (3, N'Tiradores dorados
+')
+GO
+INSERT [dbo].[Producto] ([IdProducto], [Descripcion]) VALUES (4, N'Tiradores plateados
+')
+GO
+INSERT [dbo].[Producto] ([IdProducto], [Descripcion]) VALUES (5, N'Borlas
+')
+GO
+INSERT [dbo].[Producto] ([IdProducto], [Descripcion]) VALUES (6, N'Pasadores
+')
+GO
+INSERT [dbo].[Producto] ([IdProducto], [Descripcion]) VALUES (7, N'default')
+GO
+SET IDENTITY_INSERT [dbo].[Producto] OFF
+GO
+INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (1, 2, 500)
+GO
+INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (1, 3, 135)
+GO
+INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (1, 4, 200)
+GO
+INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (4, 3, 240)
+GO
+INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (4, 4, 150)
+GO
+INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (5, 2, 50)
+GO
+INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (6, 2, 120)
+GO
+INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (6, 3, 400)
+GO
+INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (6, 4, 120)
+GO
+INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (6, 5, 500)
+GO
+INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (6, 6, 100)
+GO
+SET IDENTITY_INSERT [dbo].[Provincia] ON 
+GO
+INSERT [dbo].[Provincia] ([IdProvincia], [Descripcion]) VALUES (1, N'CABA')
+GO
+INSERT [dbo].[Provincia] ([IdProvincia], [Descripcion]) VALUES (2, N'Cordoba')
+GO
+INSERT [dbo].[Provincia] ([IdProvincia], [Descripcion]) VALUES (3, N'Misiones')
+GO
+SET IDENTITY_INSERT [dbo].[Provincia] OFF
+GO
+SET IDENTITY_INSERT [dbo].[TipoDocumento] ON 
+GO
+INSERT [dbo].[TipoDocumento] ([IdTipoDoc], [Descripcion]) VALUES (1, N'DNI')
+GO
+INSERT [dbo].[TipoDocumento] ([IdTipoDoc], [Descripcion]) VALUES (2, N'Pasaporte')
+GO
+SET IDENTITY_INSERT [dbo].[TipoDocumento] OFF
+GO
+ALTER TABLE [dbo].[Cliente]  WITH CHECK ADD  CONSTRAINT [Cliente_Provincia] FOREIGN KEY([Provincia])
+REFERENCES [dbo].[Provincia] ([IdProvincia])
+GO
+ALTER TABLE [dbo].[Cliente] CHECK CONSTRAINT [Cliente_Provincia]
+GO
+ALTER TABLE [dbo].[Cliente]  WITH CHECK ADD  CONSTRAINT [Cliente_TipoDoc] FOREIGN KEY([TipoDoc])
+REFERENCES [dbo].[TipoDocumento] ([IdTipoDoc])
+GO
+ALTER TABLE [dbo].[Cliente] CHECK CONSTRAINT [Cliente_TipoDoc]
+GO
+ALTER TABLE [dbo].[ProductoCliente]  WITH CHECK ADD  CONSTRAINT [FK_ProductoCliente_Cliente] FOREIGN KEY([IdCliente])
+REFERENCES [dbo].[Cliente] ([IdCliente])
+GO
+ALTER TABLE [dbo].[ProductoCliente] CHECK CONSTRAINT [FK_ProductoCliente_Cliente]
+GO
+ALTER TABLE [dbo].[ProductoCliente]  WITH CHECK ADD  CONSTRAINT [FK_ProductoCliente_Producto] FOREIGN KEY([IdProducto])
+REFERENCES [dbo].[Producto] ([IdProducto])
+GO
+ALTER TABLE [dbo].[ProductoCliente] CHECK CONSTRAINT [FK_ProductoCliente_Producto]
+GO
+USE [master]
+GO
+ALTER DATABASE [TIENDACRUD] SET  READ_WRITE 
+GO
