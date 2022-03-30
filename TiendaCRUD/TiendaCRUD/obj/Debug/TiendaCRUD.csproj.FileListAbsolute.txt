@@ -25,3 +25,4 @@ C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\DAL.dll.config
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\EntityFramework.xml
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Juan Aubone\source\repos\TiendaCRUD\TiendaCRUD\obj\Debug\TiendaCRUD.FrmProductClientList.resources

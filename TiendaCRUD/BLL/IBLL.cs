@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace TIENDACRUD.BLL
 {
     public interface IBLL<T, K> where T : class where K : class
     {

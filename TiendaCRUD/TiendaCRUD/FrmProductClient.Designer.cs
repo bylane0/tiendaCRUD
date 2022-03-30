@@ -72,9 +72,9 @@
             this.groupBox2.Controls.Add(this.panel3);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(0, 267);
+            this.groupBox2.Location = new System.Drawing.Point(0, 251);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(399, 261);
+            this.groupBox2.Size = new System.Drawing.Size(399, 277);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Clientes";
@@ -87,7 +87,7 @@
             this.gridClient.Location = new System.Drawing.Point(3, 64);
             this.gridClient.Name = "gridClient";
             this.gridClient.ReadOnly = true;
-            this.gridClient.Size = new System.Drawing.Size(393, 194);
+            this.gridClient.Size = new System.Drawing.Size(393, 210);
             this.gridClient.TabIndex = 1;
             this.gridClient.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridClient_RowEnter);
             // 
@@ -128,7 +128,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(399, 268);
+            this.groupBox1.Size = new System.Drawing.Size(399, 245);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Productos";
@@ -141,8 +141,9 @@
             this.gridProduct.Location = new System.Drawing.Point(3, 61);
             this.gridProduct.Name = "gridProduct";
             this.gridProduct.ReadOnly = true;
-            this.gridProduct.Size = new System.Drawing.Size(393, 204);
+            this.gridProduct.Size = new System.Drawing.Size(393, 181);
             this.gridProduct.TabIndex = 1;
+            this.gridProduct.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProduct_RowEnter);
             // 
             // panel2
             // 
@@ -161,6 +162,7 @@
             this.txtProductSearch.Name = "txtProductSearch";
             this.txtProductSearch.Size = new System.Drawing.Size(172, 26);
             this.txtProductSearch.TabIndex = 8;
+            this.txtProductSearch.TextChanged += new System.EventHandler(this.txtProductSearch_TextChanged);
             // 
             // label6
             // 
@@ -192,6 +194,7 @@
             this.btnSave.TabIndex = 37;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtAmount
             // 
@@ -200,6 +203,7 @@
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(172, 26);
             this.txtAmount.TabIndex = 36;
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // label5
             // 

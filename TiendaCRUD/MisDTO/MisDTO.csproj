@@ -44,6 +44,9 @@
     <Compile Include="DTO\ClientDetailDTO.cs" />
     <Compile Include="DTO\ClientDTO.cs" />
     <Compile Include="DTO\DocTypeDetailDTO.cs" />
+    <Compile Include="DTO\ProductClientDetailDTO.cs" />
+    <Compile Include="DTO\ProductClientDTO.cs" />
+    <Compile Include="DTO\ProductDetailDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="DTO\ProvinceDetailDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

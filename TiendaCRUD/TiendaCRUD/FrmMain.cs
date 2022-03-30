@@ -32,7 +32,7 @@ namespace TiendaCRUD
 
         private void btnProductClient_Click(object sender, EventArgs e)
         {
-            FrmProductClient frm = new FrmProductClient();
+            FrmProductClientList frm = new FrmProductClientList();
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;

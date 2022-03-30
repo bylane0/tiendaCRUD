@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace MisDTO.DTO
 {
-    public class ProductDTO
+    public class ProductDetailDTO
     {
-        public List<ProductDetailDTO> Productos { get; set; }
+        public int IdProducto { get; set; }
+        public string Descripcion { get; set; }
     }
 }

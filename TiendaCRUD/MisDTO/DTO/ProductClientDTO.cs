@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MisDTO.DTO
 {
-    public class ProductDTO
+    public class ProductClientDTO
     {
-        public List<ProductDetailDTO> Productos { get; set; }
+        public List<ProductClientDetailDTO> productsclient { get; set; }
     }
 }
