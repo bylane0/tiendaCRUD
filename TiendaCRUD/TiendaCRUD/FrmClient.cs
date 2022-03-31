@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TIENDACRUD.BLL;
@@ -30,9 +31,6 @@ namespace TiendaCRUD
         public ClientDetailDTO detail = new ClientDetailDTO();
         public ClientDTO dto = new ClientDTO();
         public bool isUpdate = false;
-
-
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             string message = ValidateForm();
@@ -79,12 +77,8 @@ namespace TiendaCRUD
                         }
                     }
                 }
-
-
-
             }
         }
-
         private void FillAllData()
         {
             bll.Select();
@@ -106,10 +100,7 @@ namespace TiendaCRUD
                 txtAddress.Text = detail.Direccion;
                 txtDocumentNumber.Text = detail.NroDoc;
             }
-
-
         }
-
         private void CleanFilters()
         {
             txtClientName.Clear();
@@ -132,9 +123,19 @@ namespace TiendaCRUD
                 message += "Seleccione un tipo de documento" + Environment.NewLine;
             if (string.IsNullOrEmpty(txtDocumentNumber.Text))
                 message += "El campo 'Número de documento' está vacío" + Environment.NewLine;
+            else if (!ValidateDocument(txtDocumentNumber.Text))
+                message += "El número de documento ingresado es incorrecto" + Environment.NewLine;
             return message;
 
         }
+
+        private bool ValidateDocument(string nroDoc)
+        {
+            var regexDoc = @"^[\d]{1,3}\.?[\d]{3,3}\.?[\d]{3,3}$"; //Minimo un millon (7 digitos), maximo 999 millones (9 digitos), pero debe permitir puntos de mil opcionalmente
+            var temp = Regex.IsMatch(nroDoc, regexDoc);
+            return temp; // Si coincide return true, sino false.
+        }
+
 
         private void txtDocumentNumber_KeyPress(object sender, KeyPressEventArgs e)
         {

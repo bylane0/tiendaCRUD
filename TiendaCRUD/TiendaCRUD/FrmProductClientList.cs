@@ -129,5 +129,26 @@ namespace TiendaCRUD
             detail.Cantidad = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
 
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (detail.IdCliente == 0 || detail.IdProducto == 0)
+                MessageBox.Show("Seleccione una relación de la tabla!");
+            else
+            {
+                DialogResult result = MessageBox.Show("¿Estás seguro/a?", "Advertencia", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    if (bll.Delete(detail))
+                    {
+                        MessageBox.Show("La relación se borró correctamente!");
+                        bll = new ProductClientBLL();
+                        dto = bll.Select();
+                        FillAllData();
+                        CleanFilters();
+                    }
+                }
+            }
+        }
     }
 }

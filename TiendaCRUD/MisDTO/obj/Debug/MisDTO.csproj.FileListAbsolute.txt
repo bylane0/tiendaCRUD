@@ -4,3 +4,9 @@ C:\Users\Juan Aubone\source\repos\TiendaCRUD\MisDTO\obj\Debug\MisDTO.csproj.Asse
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\MisDTO\obj\Debug\MisDTO.csproj.CoreCompileInputs.cache
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\MisDTO\obj\Debug\MisDTO.dll
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\MisDTO\obj\Debug\MisDTO.pdb
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\MisDTO\bin\Debug\MisDTO.dll
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\MisDTO\bin\Debug\MisDTO.pdb
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\MisDTO\obj\Debug\MisDTO.csproj.AssemblyReference.cache
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\MisDTO\obj\Debug\MisDTO.csproj.CoreCompileInputs.cache
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\MisDTO\obj\Debug\MisDTO.dll
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\MisDTO\obj\Debug\MisDTO.pdb

@@ -12,7 +12,7 @@ namespace TIENDACRUD.BLL
         //K = ProductDTO
         bool Insert(T entity);
         bool Update(T entity);
-        bool Delete(int ID);
+        bool Delete(T entity);
         K Select();
     }
 }

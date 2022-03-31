@@ -45,6 +45,20 @@ namespace TIENDACRUD.BLL
             procli.Cantidad = entity.Cantidad;
             return dao.Update(procli);
         }
+
+        public bool Delete(ProductClientDetailDTO entity)
+        {
+            ProductoCliente procli = new ProductoCliente();
+            procli.IdCliente = entity.IdCliente;
+            procli.IdProducto = entity.IdProducto;
+
+            if (dao.Delete(procli))
+                return true;
+            else
+                return false;
+       
+           
+        }
     }
 }
 

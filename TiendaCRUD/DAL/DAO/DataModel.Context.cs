@@ -7,16 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL
+namespace DAL.DAO
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
-    public partial class TIENDAEntities : DbContext
+    public partial class TIENDACRUDEntities : DbContext
     {
-        public TIENDAEntities()
-            : base("name=TIENDAEntities")
+        public TIENDACRUDEntities()
+            : base("name=TIENDACRUDEntities")
         {
         }
     
@@ -29,7 +31,15 @@ namespace DAL
         public virtual DbSet<Producto> Productoes { get; set; }
         public virtual DbSet<ProductoCliente> ProductoClientes { get; set; }
         public virtual DbSet<Provincia> Provincias { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TipoDocumento> TipoDocumentoes { get; set; }
+    
+        public virtual int Delete_Cliente(Nullable<int> idCliente)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("IdCliente", idCliente) :
+                new ObjectParameter("IdCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Delete_Cliente", idClienteParameter);
+        }
     }
 }

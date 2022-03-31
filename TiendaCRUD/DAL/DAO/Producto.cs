@@ -7,23 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL
+namespace DAL.DAO
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Provincia
+    public partial class Producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Provincia()
+        public Producto()
         {
-            this.Clientes = new HashSet<Cliente>();
+            this.ProductoClientes = new HashSet<ProductoCliente>();
         }
     
-        public int IdProvincia { get; set; }
+        public int IdProducto { get; set; }
         public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cliente> Clientes { get; set; }
+        public virtual ICollection<ProductoCliente> ProductoClientes { get; set; }
     }
 }

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.DAO;
-using DAL;
 using MisDTO.DTO;
 
 namespace TIENDACRUD.BLL
@@ -24,8 +23,7 @@ namespace TIENDACRUD.BLL
             cli.Provincia = entity.Provincia;
             cli.TipoDoc = entity.TipoDoc;
             cli.NroDoc = entity.NroDoc;
-            cli.ProductoCliente = 7; // Producto Default, debería aceptar valores nulos pero .-. implementar luego
-                                     // ¿ para que sirve productclient en la db? se puede relacionar con IdCliente sin usar prodclient?     
+             
             return daoclientes.Insert(cli);
         }
 
@@ -52,6 +50,16 @@ namespace TIENDACRUD.BLL
             cli.TipoDoc = entity.TipoDoc;
             cli.NroDoc = entity.NroDoc;
             return daoclientes.Update(cli);
+        }
+
+        public bool Delete(ClientDetailDTO entity)
+        {
+            Cliente cli = new Cliente();
+            cli.IdCliente = entity.IdCliente;
+            if (daoclientes.Delete(cli))
+                return true;
+            else
+                return false;
         }
     }
 }

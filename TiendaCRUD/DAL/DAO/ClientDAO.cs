@@ -12,7 +12,17 @@ namespace DAL.DAO
     {
         public bool Delete(Cliente entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Delete_Cliente(entity.IdCliente); // Stored procedure
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool GetBack(int ID)

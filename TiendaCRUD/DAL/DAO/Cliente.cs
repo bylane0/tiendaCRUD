@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL
+namespace DAL.DAO
 {
     using System;
     using System.Collections.Generic;
@@ -26,12 +26,10 @@ namespace DAL
         public int Provincia { get; set; }
         public int TipoDoc { get; set; }
         public string NroDoc { get; set; }
-        public int ProductoCliente { get; set; }
     
         public virtual Provincia Provincia1 { get; set; }
         public virtual TipoDocumento TipoDocumento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductoCliente> ProductoClientes { get; set; }
-       
     }
 }

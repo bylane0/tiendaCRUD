@@ -12,3 +12,17 @@ C:\Users\Juan Aubone\source\repos\TiendaCRUD\DAL\bin\Debug\EntityFramework.SqlSe
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\DAL\obj\Debug\DAL.dll
 C:\Users\Juan Aubone\source\repos\TiendaCRUD\DAL\obj\Debug\DAL.pdb
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\DAL\bin\Debug\DAL.dll.config
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\DAL\bin\Debug\DAL.dll
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\DAL\bin\Debug\DAL.pdb
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\DAL\bin\Debug\EntityFramework.dll
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\DAL\bin\Debug\MisDTO.dll
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\DAL\bin\Debug\MisDTO.pdb
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\DAL\bin\Debug\EntityFramework.xml
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\DAL\obj\Debug\DAL.dll
+C:\Users\Juan Aubone\Desktop\td\tiendaCRUD\TiendaCRUD\DAL\obj\Debug\DAL.pdb

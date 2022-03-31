@@ -32,5 +32,10 @@ namespace TIENDACRUD.BLL
         {
             throw new NotImplementedException();
         }
+
+        public bool Delete(ProductDetailDTO entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

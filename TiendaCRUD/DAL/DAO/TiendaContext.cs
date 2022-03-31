@@ -8,6 +8,6 @@ namespace DAL.DAO
 {
     public class TiendaContext
     {
-        public TIENDAEntities db = new TIENDAEntities();
+        public TIENDACRUDEntities db = new TIENDACRUDEntities();
     }
 }

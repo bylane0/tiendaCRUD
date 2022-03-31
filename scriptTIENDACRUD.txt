@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [TIENDACRUD]    Script Date: 30/3/2022 13:11:42 ******/
+/****** Object:  Database [TIENDACRUD]    Script Date: 31/3/2022 10:12:41 ******/
 CREATE DATABASE [TIENDACRUD]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -80,7 +80,7 @@ ALTER DATABASE [TIENDACRUD] SET QUERY_STORE = OFF
 GO
 USE [TIENDACRUD]
 GO
-/****** Object:  Table [dbo].[Cliente]    Script Date: 30/3/2022 13:11:43 ******/
+/****** Object:  Table [dbo].[Cliente]    Script Date: 31/3/2022 10:12:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -92,14 +92,13 @@ CREATE TABLE [dbo].[Cliente](
 	[Provincia] [int] NOT NULL,
 	[TipoDoc] [int] NOT NULL,
 	[NroDoc] [varchar](50) NOT NULL,
-	[ProductoCliente] [int] NOT NULL,
  CONSTRAINT [PK_Cliente] PRIMARY KEY CLUSTERED 
 (
 	[IdCliente] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Producto]    Script Date: 30/3/2022 13:11:43 ******/
+/****** Object:  Table [dbo].[Producto]    Script Date: 31/3/2022 10:12:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -113,7 +112,7 @@ CREATE TABLE [dbo].[Producto](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ProductoCliente]    Script Date: 30/3/2022 13:11:43 ******/
+/****** Object:  Table [dbo].[ProductoCliente]    Script Date: 31/3/2022 10:12:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -129,7 +128,7 @@ CREATE TABLE [dbo].[ProductoCliente](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Provincia]    Script Date: 30/3/2022 13:11:43 ******/
+/****** Object:  Table [dbo].[Provincia]    Script Date: 31/3/2022 10:12:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -143,7 +142,7 @@ CREATE TABLE [dbo].[Provincia](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TipoDocumento]    Script Date: 30/3/2022 13:11:43 ******/
+/****** Object:  Table [dbo].[TipoDocumento]    Script Date: 31/3/2022 10:12:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -159,15 +158,15 @@ CREATE TABLE [dbo].[TipoDocumento](
 GO
 SET IDENTITY_INSERT [dbo].[Cliente] ON 
 GO
-INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc], [ProductoCliente]) VALUES (2, N'Juan', N'Sidney 321', 1, 1, N'44561985', 1)
+INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc]) VALUES (2, N'Juan', N'Sidney 321', 1, 1, N'44561985')
 GO
-INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc], [ProductoCliente]) VALUES (3, N'Carlitos', N'Zamudio 3200', 1, 1, N'17616630', 7)
+INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc]) VALUES (3, N'Carlitos', N'Zamudio 3200', 1, 1, N'17616630')
 GO
-INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc], [ProductoCliente]) VALUES (4, N'Florencia', N'Pekos 2121', 2, 1, N'18499035', 7)
+INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc]) VALUES (4, N'Florencia', N'Pekos 2121', 2, 1, N'18499035')
 GO
-INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc], [ProductoCliente]) VALUES (5, N'Sofia', N'Cuenca 4821', 1, 1, N'39643980', 7)
+INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc]) VALUES (6, N'Ignacio', N'Lombardi 2399', 3, 1, N'1761290')
 GO
-INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc], [ProductoCliente]) VALUES (6, N'Ignacio', N'Lombardi 2399', 3, 1, N'1761290', 7)
+INSERT [dbo].[Cliente] ([IdCliente], [Nombre], [Direccion], [Provincia], [TipoDoc], [NroDoc]) VALUES (9, N'Mariana', N'Rawson 2000', 3, 2, N'356201001')
 GO
 SET IDENTITY_INSERT [dbo].[Cliente] OFF
 GO
@@ -213,8 +212,6 @@ INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (6
 GO
 INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (6, 4, 120)
 GO
-INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (6, 5, 500)
-GO
 INSERT [dbo].[ProductoCliente] ([IdProducto], [IdCliente], [Cantidad]) VALUES (6, 6, 100)
 GO
 SET IDENTITY_INSERT [dbo].[Provincia] ON 
@@ -254,6 +251,28 @@ ALTER TABLE [dbo].[ProductoCliente]  WITH CHECK ADD  CONSTRAINT [FK_ProductoClie
 REFERENCES [dbo].[Producto] ([IdProducto])
 GO
 ALTER TABLE [dbo].[ProductoCliente] CHECK CONSTRAINT [FK_ProductoCliente_Producto]
+GO
+/****** Object:  StoredProcedure [dbo].[Delete_Cliente]    Script Date: 31/3/2022 10:12:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[Delete_Cliente]
+(@IdCliente int)
+AS
+BEGIN
+	begin try
+		begin transaction
+		delete from ProductoCliente where IdCliente = @IdCliente;
+		delete from Cliente where IdCliente = @IdCliente;
+		commit transaction
+	end try
+
+	begin catch
+		print(error_message())
+		rollback transaction
+	end catch
+END
 GO
 USE [master]
 GO

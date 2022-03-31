@@ -7,17 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL
+namespace DAL.DAO
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class ProductoCliente
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int IdProducto { get; set; }
+        public int IdCliente { get; set; }
+        public int Cantidad { get; set; }
+    
+        public virtual Cliente Cliente { get; set; }
+        public virtual Producto Producto { get; set; }
     }
 }

@@ -97,5 +97,26 @@ namespace TiendaCRUD
 
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (detail.IdCliente == 0)
+                MessageBox.Show("Seleccione un cliente de la tabla!");
+            else
+            {
+                DialogResult result = MessageBox.Show("¿Estás seguro/a?", "Advertencia", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    if (bll.Delete(detail))
+                    {
+                        MessageBox.Show("El cliente se borró correctamente!");
+                        bll = new ClientBLL();
+                        dto = bll.Select();
+                        FillAllData();
+                       
+                    }
+                }
+            }
+        }
     }
 }

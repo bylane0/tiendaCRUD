@@ -10,7 +10,6 @@
     <Property Name="Provincia" Type="int" Nullable="false" />
     <Property Name="TipoDoc" Type="int" Nullable="false" />
     <Property Name="NroDoc" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="ProductoCliente" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Producto">
     <Key>
@@ -34,16 +33,6 @@
     </Key>
     <Property Name="IdProvincia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="TipoDocumento">
     <Key>
@@ -100,12 +89,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="Delete_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCliente" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="TIENDACRUDModelStoreContainer">
     <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductoCliente" EntityType="Self.ProductoCliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Provincia" EntityType="Self.Provincia" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoDocumento" EntityType="Self.TipoDocumento" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="Cliente_Provincia" Association="Self.Cliente_Provincia">
       <End Role="Provincia" EntitySet="Provincia" />

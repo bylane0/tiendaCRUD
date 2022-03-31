@@ -10,7 +10,6 @@
     <Property Name="Provincia" Type="Int32" Nullable="false" />
     <Property Name="TipoDoc" Type="Int32" Nullable="false" />
     <Property Name="NroDoc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ProductoCliente" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Provincia1" Relationship="Self.Cliente_Provincia" FromRole="Cliente" ToRole="Provincia" />
     <NavigationProperty Name="TipoDocumento" Relationship="Self.Cliente_TipoDoc" FromRole="Cliente" ToRole="TipoDocumento" />
     <NavigationProperty Name="ProductoClientes" Relationship="Self.FK_ProductoCliente_Cliente" FromRole="Cliente" ToRole="ProductoCliente" />
@@ -41,16 +40,6 @@
     <Property Name="IdProvincia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Clientes" Relationship="Self.Cliente_Provincia" FromRole="Provincia" ToRole="Cliente" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="TipoDocumento">
     <Key>
@@ -113,7 +102,6 @@
     <EntitySet Name="Productoes" EntityType="Self.Producto" />
     <EntitySet Name="ProductoClientes" EntityType="Self.ProductoCliente" />
     <EntitySet Name="Provincias" EntityType="Self.Provincia" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="TipoDocumentoes" EntityType="Self.TipoDocumento" />
     <AssociationSet Name="Cliente_Provincia" Association="Self.Cliente_Provincia">
       <End Role="Provincia" EntitySet="Provincias" />
@@ -131,5 +119,8 @@
       <End Role="Producto" EntitySet="Productoes" />
       <End Role="ProductoCliente" EntitySet="ProductoClientes" />
     </AssociationSet>
+    <FunctionImport Name="Delete_Cliente">
+      <Parameter Name="IdCliente" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

@@ -11,7 +11,18 @@ namespace DAL.DAO
     {
         public bool Delete(ProductoCliente entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                ProductoCliente procli = db.ProductoClientes.First(x => x.IdProducto == entity.IdProducto && x.IdCliente == entity.IdCliente);
+                db.ProductoClientes.Remove(procli);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Insert(ProductoCliente entity)
